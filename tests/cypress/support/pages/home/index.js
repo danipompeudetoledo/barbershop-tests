@@ -8,11 +8,14 @@ class HomePage{
 
     }
 
-    fillLogin(){
+    fillLogin(user){
+        cy.get(elHome.email).type(user.email);
+        cy.get(elHome.password).type(user.password);
 
     }
 
     submit(){
+        cy.contains(elHome.submit,'Entrar').click()
 
     }
 }

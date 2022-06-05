@@ -1,25 +1,33 @@
 
  import {elSignup} from '.elements'
+ import { elHome } from '../home/elements';
 
-class Signup{
+class SignupPage{
 
     go(){
-        cy.visit('/signup');
+        cy.visit('http://localhost:3000/signup');
         cy.get(elSignup.assertignupPage).should('have.text','Faça seu cadastro');
 
     }
 
-    fillForm(user){
+    fillForm(fakerUser){
 
-        cy.get('input[placeholder="Nome"]').type(user.name);
-        cy.get('input[placeholder="E-mail"]').type(user.email);
-        cy.get('input[placeholder="senha"]').type(user.password);
+        cy.get(elSignup.name).type(fakerUser.name);
+        cy.get(elHome.email).type(fakerUser.email);
+        cy.get(elHome.password).type(fakerUser.password);
 
     }
 
     submit(){
-        cy.get('button[type="submit"]').click()
+        cy.contains(elHome.submit,'Cadastrar').should('be.visible').click()
 
+    }
+
+    toastAlert(messageExpect){
+        cy.get('.toast')
+        .should('be.visible')
+        .find('p')
+        .should('have.text', messageExpect);
     }
 
 

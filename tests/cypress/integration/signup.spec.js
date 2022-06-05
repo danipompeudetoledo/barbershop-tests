@@ -1,17 +1,21 @@
 import signupFactory from "../factories/signupFactory";
-import signup from "../support/pages/signup";
+
+import SignupPage from "../support/pages/signup"
 
 
 describe('Signup', () => {
 
-    it('Faça seu cadastro', () => {
-        signup.go()
-        let user = signupFactory.user()
-        signup.fillForm(user)
-        signup.submit()
+    it.only('Faça seu cadastro', function(){
+        SignupPage.go
+        let user = signupFactory.fakerUser();
+        SignupPage.fillForm(user)
+        SignupPage.submit()
+        signup.toastAlert('Agora você pode fazer seu login no Samurai Barbershop!')
 
 
         
     });
+
+    
     
 });

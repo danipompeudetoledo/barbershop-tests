@@ -1,15 +1,15 @@
-let faker = require('faker')
+let faker = require('@faker-js/faker')
 
 export default{
 
-    user: function(){
+    fakerUser: function(){
 
         let firstName = faker.name.firstName();
         let lastName = faker.name.lastName();
 
 
         let data = {
-            name:`${firsName} ${lastName}` ,
+            name:`${firstName} ${lastName}` ,
             email: faker.internet.email(firstName),
             password: 'Test123'
 
