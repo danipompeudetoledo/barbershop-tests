@@ -8,7 +8,7 @@ import SignupPage from "../support/pages/signup";
 
 describe('Signup', () => {
 
-    it.only('Faça seu cadastro', () =>{
+    it('Faça seu cadastro', () =>{
         SignupPage.go
         let user = signupFactory.fakerUser();
         SignupPage.fillForm(user)
@@ -19,7 +19,7 @@ describe('Signup', () => {
         
     });
 
-    it.only('email inválido',()=>{
+    it('email inválido',()=>{
         SignupPage.go()
         let user = userFactory.user();
         SignupPage.fillForm(user)
@@ -66,6 +66,11 @@ describe('Signup', () => {
         })
         
 
+    })
+
+    it('voltar para o login', ()=>{
+
+        SignupPage.backToLogin();
     })
   
 

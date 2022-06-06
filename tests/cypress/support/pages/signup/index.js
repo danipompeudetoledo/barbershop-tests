@@ -37,6 +37,11 @@ class SignupPage{
         cy.contains('elSignup.required-error', 'expectedMessage').should('be.visible');
     }
 
+    backToLogin(){
+        cy.contains(elSignup.backToLogin).should('be.visible'.click)
+    }
+    
+
 
 
 
