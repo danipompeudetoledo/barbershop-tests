@@ -3,7 +3,7 @@ export default{
 user: function(){
     var data = {
         name: '',
-        email: 'dani1990gmail.com',
+        email: 'daniel0gmail.com',
         password: 'test123'
     }
      return data
