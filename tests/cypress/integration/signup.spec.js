@@ -1,15 +1,12 @@
 import signupFactory from "../factories/signupFactory";
 import userFactory from "../factories/userFactory";
-
 import SignupPage from "../support/pages/signup";
-
-
 
 
 describe('Signup', () => {
 
     it('Faça seu cadastro', () =>{
-        SignupPage.go
+        SignupPage.go()
         let user = signupFactory.fakerUser();
         SignupPage.fillForm(user)
         SignupPage.submit()
@@ -43,25 +40,25 @@ describe('Signup', () => {
     
     })
 
-    context.only('Required fields', function() {
+    context('Required fields', function() {
 
         const messages = [
-            {field:'name', output: alertErrorNome},
+            {field:'Nome'},
             
-            {field:'email', output: alertErrorEmail},
+            {field:'E-mail'},
 
-            {field:'senha', output: alertErrorSenha},
+            {field:'Senha'},
             
         ]
 
         before(function() {
-            singup.go();
-            singup.submit();            
+            SignupPage.go();
+            SignupPage.submit();            
         });
 
         messages.forEach(function(msg){
-            it( `${msg.field} is required` , () => {
-                SignupPage.alertErrorShouldBe(msg.output)                
+            it.only( `${msg.field} is required` , () => {
+                SignupPage.alertErrorShouldBe(msg.field)                
             });
         })
         
@@ -69,6 +66,7 @@ describe('Signup', () => {
     })
 
     it('voltar para o login', ()=>{
+        SignupPage.go()
 
         SignupPage.backToLogin();
     })

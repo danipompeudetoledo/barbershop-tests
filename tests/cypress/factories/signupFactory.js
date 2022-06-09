@@ -1,4 +1,5 @@
-let faker = require('@faker-js/faker')
+let faker = require('faker')
+
 
 export default{
 
@@ -6,6 +7,7 @@ export default{
 
         let firstName = faker.name.firstName();
         let lastName = faker.name.lastName();
+        
 
 
         let data = {
